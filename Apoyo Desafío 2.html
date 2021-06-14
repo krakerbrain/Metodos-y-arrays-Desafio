@@ -64,7 +64,42 @@ radiologia.pop()
 
 console.log (radiologia)
 
+// 3. Imprimir en la página HTML, mediante document.write y/o la funciones que estime
+// conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo
+// separando por un guión cada dato desplegado y cada fila de información debe estar
+// separada por un párrafo.
+// Ejemplo:
+// 8:30 - ANDREA ZUÑIGA - MARCELA RETAMAL - 11123425-6 - ISAPRE
+// 11:00 - MARIA PIA ZAÑARTU - ANGEL MUÑOZ - 9878789-2 - ISAPRE...
 
+var datos = dental.reduce(function(acumulador, pacientes){
+return acumulador + '<p>' + pacientes.hora +  ' - ' + pacientes.especialista +  ' - ' + pacientes.paciente +  ' - ' + pacientes.rut +   ' - ' + pacientes.prevision + '</p>';
+}, '');
+document.write(`<h4>Lista consultas médicas Dental</h4>`)
+document.write(datos);
+
+// 4. Imprimir un listado total de todos los pacientes que se atendieron en el centro
+// médico. Para esto, deberá unir todos los nombres de pacientes e imprimir uno por
+// cada párrafo.
+// Ejemplo:
+// FRANCISCA ROJAS
+// PAMELA ESTRADA
+// ARMANDO LUNA…
+
+document.write(`<h4>LISTA PACIENTES RADIOLOGIA</h4>`)
+radiologia.forEach(function(nombresRadiologia) {
+document.write(`<p>${nombresRadiologia.paciente}</p>`);
+});
+
+document.write(`<h4>LISTA PACIENTES TRAUMATOLOGIA</h4>`)
+traumatologia.forEach(function(nombresTraumatologia) {
+    document.write(`<p>${nombresTraumatologia.paciente}</p>`);
+});
+
+document.write(`<h4>LISTA PACIENTES DENTAL</h4>`)
+dental.forEach(function(nombresDental) {
+    document.write(`<p>${nombresDental.paciente}</p>`);
+});
 //Agregar código para el desafio 2 aquí
 
 document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
